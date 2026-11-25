@@ -28,7 +28,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 .hero{position:relative;height:100svh;min-height:600px;color:#fff;overflow:hidden}
 .hero>img{position:absolute;inset:0;transform:scale(1.08);animation:zoom 14s ease-out forwards}
 @keyframes zoom{to{transform:scale(1)}}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,0) 26%,rgba(0,0,0,0) 40%,rgba(20,14,8,.9))}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.05) 24%,rgba(18,12,6,.35) 42%,rgba(18,12,6,.86) 62%,rgba(18,12,6,.96))}
 .top{position:absolute;z-index:2;top:max(18px,env(safe-area-inset-top));left:20px;right:20px;display:flex;justify-content:space-between;align-items:center}
 .logo{font-family:Fraunces,serif;font-size:21px;line-height:1}
 .logo small{display:block;font:600 10px Inter,sans-serif;letter-spacing:.32em;margin-top:5px;opacity:.85}
@@ -47,42 +47,33 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 
 .fly{height:240svh;position:relative}
 .fly .st{position:sticky;top:0;height:100svh;overflow:hidden;padding:40px 20px 0}
-.stage{position:absolute;left:20px;right:20px;top:136px;height:46svh}
+.stage{position:absolute;left:20px;right:20px;top:136px;bottom:28px}
 .tile{position:absolute;border-radius:14px;overflow:hidden;will-change:transform,opacity}
 .t1{left:0;top:0;width:48%;height:30%}
 .t2{right:0;top:6%;width:36%;height:40%}
 .t3{left:3%;top:56%;width:38%;height:36%}
 .t4{right:0;top:64%;width:44%;height:34%}
 .main{z-index:2;inset-inline-start:31%;border-radius:16px;box-shadow:0 0 0 4px var(--bg)}
-.am{position:absolute;left:20px;right:20px;top:calc(136px + 46svh + 22px);display:grid;grid-template-columns:1fr 1fr;gap:18px 16px}
-.am b{display:block;font-family:Fraunces,serif;font-weight:500;font-size:19px;margin-bottom:3px}
-.am span{font-size:13px;line-height:1.4;color:var(--mut)}
+.amen{display:grid;grid-template-columns:1fr 1fr;gap:20px 14px;padding:8px 20px 0}
+.amen div{display:flex;gap:11px;align-items:center;font-size:14px;font-weight:500;line-height:1.25}
+.amen svg{width:23px;height:23px;flex:none;stroke:var(--acc);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
-.fl{height:420svh;position:relative}
-.fl .st{position:sticky;top:0;height:100svh;padding:28px 20px 16px;display:flex;flex-direction:column;gap:14px}
-.pick{display:grid;grid-template-columns:47% 1fr;gap:12px;flex:none}
-.house{position:relative;aspect-ratio:3/4;border-radius:16px;overflow:hidden}
-.band{position:absolute;left:0;right:0;background:rgba(47,74,58,.5);box-shadow:0 0 0 2px #fff;transition:top .5s cubic-bezier(.2,.7,.2,1),height .5s cubic-bezier(.2,.7,.2,1)}
-.fls{display:grid;grid-template-rows:repeat(4,1fr);gap:8px}
-.fls button{text-align:start;font:500 13px/1.3 Inter,sans-serif;color:var(--mut);background:var(--sand);border:0;border-radius:14px;padding:0 14px;transition:background .3s ease,color .3s ease}
-.fls button b{display:block;font-family:Fraunces,serif;font-weight:500;font-size:18px;color:var(--ink);transition:color .3s ease}
-.fls button.on{background:var(--ink);color:#d9cdb8}
-.fls button.on b{color:#fff}
-.card{background:#fff;border-radius:20px;overflow:hidden;flex:1;min-height:0;display:flex;flex-direction:column;transition:opacity .25s ease;box-shadow:0 1px 2px rgba(43,33,24,.05),0 10px 28px rgba(43,33,24,.08)}
-.gal{flex:1;min-height:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;position:relative}
-.gal::-webkit-scrollbar{display:none}
-.gal img{flex:0 0 100%;scroll-snap-align:center}
-.galw{flex:1;min-height:0;position:relative;display:flex}
-.dots{position:absolute;bottom:10px;left:0;right:0;display:flex;gap:6px;justify-content:center;pointer-events:none}
-.dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55);transition:background .2s,transform .2s}
-.dots i.on{background:#fff;transform:scale(1.3)}
-.facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.facts span{font-size:12px;font-weight:500;background:var(--bg);border-radius:999px;padding:5px 10px;color:var(--ink)}
-.card .tx{padding:14px 16px 16px}
-.card h3{font-family:Fraunces,serif;font-weight:500;font-size:22px}
-.pr{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-.pr b{font-family:Fraunces,serif;font-weight:500;font-size:30px}
-.pr .btn{padding:13px 22px;font-size:14px}
+.apt{padding:76px 0 72px}
+.apt h2{padding:0 20px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:22px 20px 16px;scrollbar-width:none}
+.tabs::-webkit-scrollbar,.gal2::-webkit-scrollbar{display:none}
+.tabs button{flex:none;font:500 14px Inter,sans-serif;color:var(--ink);background:var(--sand);border:0;border-radius:999px;padding:12px 17px;transition:background .25s ease,color .25s ease}
+.tabs button.on{background:var(--ink);color:#fff}
+.gal2{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px;scroll-padding:0 20px;scrollbar-width:none;transition:opacity .25s ease}
+.gal2 img{flex:0 0 86%;width:86%;height:auto;aspect-ratio:4/5;border-radius:18px;scroll-snap-align:start;outline:1px solid rgba(0,0,0,.07);outline-offset:-1px}
+.cnt{display:flex;justify-content:space-between;font-size:13px;color:var(--mut);padding:12px 20px 0}
+.atx{padding:16px 20px 0}
+.atx h3{font-family:Fraunces,serif;font-weight:500;font-size:26px}
+.facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.facts span{font-size:13px;font-weight:500;background:var(--sand);border-radius:999px;padding:6px 12px;color:var(--ink)}
+.pr{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+.pr b{font-family:Fraunces,serif;font-weight:500;font-size:34px}
+.pr .btn{padding:15px 26px;font-size:15px}
 
 .map{position:relative;height:300px;border-radius:20px;overflow:hidden;margin:24px 0 0;background:#DDE5DA}
 .map iframe{width:100%;height:100%;border:0;filter:saturate(.75)}
@@ -92,6 +83,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 .big span:first-child{padding-inline-start:0;border-inline-start:0}
 .big b{display:block;font-family:Fraunces,serif;font-weight:400;font-size:34px;color:var(--ink);line-height:1.05;margin-bottom:4px}
 .big small{font-size:15px}
+.mallrow{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:24px;padding:16px 18px;background:var(--sand);border-radius:18px;text-decoration:none;color:var(--ink)}
+.mallrow b{display:block;font-family:Fraunces,serif;font-weight:500;font-size:20px}
+.mallrow span{font-size:13px;color:var(--mut)}
+.mallrow i{font-style:normal;font-weight:600;font-size:13px;white-space:nowrap}
 
 .terms{background:var(--sand);padding:72px 20px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:26px 0 8px}
@@ -115,9 +110,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 .fab.show{transform:scale(1)}
 .fab svg{width:30px;height:30px;fill:#fff}
 [dir=rtl] body{font-family:'IBM Plex Sans Arabic',Inter,sans-serif}
-[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3,[dir=rtl] .card h3,[dir=rtl] .am b,[dir=rtl] .fls button b,[dir=rtl] .two b{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:500;letter-spacing:0;line-height:1.3}
+[dir=rtl] h1,[dir=rtl] h2,[dir=rtl] h3,[dir=rtl] .atx h3,[dir=rtl] .mallrow b,[dir=rtl] .two b{font-family:'IBM Plex Sans Arabic',sans-serif;font-weight:500;letter-spacing:0;line-height:1.3}
 [dir=rtl] .hero h1{font-size:36px}
-[dir=rtl] .btn,[dir=rtl] .lang,[dir=rtl] .dates input,[dir=rtl] .dates select,[dir=rtl] .fls button{font-family:'IBM Plex Sans Arabic',sans-serif}
+[dir=rtl] .btn,[dir=rtl] .lang,[dir=rtl] .dates input,[dir=rtl] .dates select,[dir=rtl] .tabs button{font-family:'IBM Plex Sans Arabic',sans-serif}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.hero>img{animation:none;transform:none}}
 </style>
 </head>
@@ -149,33 +144,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
       <div class="tile t4" data-x="80" data-y="80"><img data-s="seif" alt=""></div>
       <div class="tile main"><img data-s="spal" alt=""></div>
     </div>
-    <div class="am" id="am">
-      <div><b data-t="a1"></b><span data-t="a1s"></span></div>
-      <div><b data-t="a2"></b><span data-t="a2s"></span></div>
-      <div><b data-t="a3"></b><span data-t="a3s"></span></div>
-      <div><b data-t="a4"></b><span data-t="a4s"></span></div>
-    </div>
   </div>
 </section>
+<section class="amen rv"><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9a14 14 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/></svg><span data-t="m_wifi"></span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4zM2 10h20M9 6V4M15 6V4"/></svg><span data-t="m_kit"></span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M7.5 6.5h.01"/></svg><span data-t="m_wash"></span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h12a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg><span data-t="m_ac"></span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4zM6 12V6a2 2 0 0 1 4 0M7 19l-1 2M17 19l1 2"/></svg><span data-t="m_bath"></span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8"/></svg><span data-t="m_tv"></span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M12 9v1.5"/></svg><span data-t="m_safe"></span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="1"/><path d="M9 21v-8a3 3 0 0 1 6 0v8"/></svg><span data-t="m_mat"></span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h18l-2-6a3 3 0 0 0-3-2H9M3 17a8 8 0 0 1 8-6h7"/></svg><span data-t="m_iron"></span></div><div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V12M20 21V12M4 12h16M8 12v9M12 12v9M16 12v9M7 12V5h10v7"/></svg><span data-t="m_balc"></span></div></section>
 
-<section class="fl" id="fl">
-  <div class="st">
-    <h2 data-t="h2b"></h2>
-    <div class="pick">
-      <div class="house"><img data-s="fasad2" alt=""><div class="band" id="band"></div></div>
-      <div class="fls" id="chips">
-        <button data-i="3"><b data-t="f3"></b><span data-t="t2br"></span></button>
-        <button data-i="2"><b data-t="f2"></b><span data-t="t2br"></span></button>
-        <button data-i="1"><b data-t="f1"></b><span data-t="t2br"></span></button>
-        <button data-i="0"><b data-t="f0"></b><span data-t="t1br"></span></button>
-      </div>
-    </div>
-    <div class="card" id="card">
-      <div class="galw"><div class="gal" id="gal"></div><div class="dots" id="dots"></div></div>
-      <div class="tx"><h3 id="ct"></h3><div class="facts" id="cf"></div>
-        <div class="pr"><div><b id="cp"></b> <span class="mut" data-t="pn"></span></div><a class="btn wal" id="cb" data-t="chk" href="#"></a></div>
-      </div>
-    </div>
+<section class="apt" id="apt">
+  <h2 class="rv" data-t="h2b"></h2>
+  <div class="tabs" id="tabs"><button data-i="0" data-t="tab0"></button><button data-i="1" data-t="tab1"></button><button data-i="2" data-t="tab2"></button></div>
+  <div class="gal2" id="gal"></div>
+  <div class="cnt"><span id="cnt"></span><span data-t="swipe"></span></div>
+  <div class="atx"><h3 id="ct"></h3><div class="facts" id="cf"></div>
+    <div class="pr"><div><b id="cp"></b> <span class="mut" data-t="pn"></span></div><a class="btn wal" id="cb" data-t="chk" href="#"></a></div>
   </div>
 </section>
 
@@ -183,7 +162,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   <h2 class="rv" data-t="h2c"></h2>
   <div class="map rv"><iframe loading="lazy" title="Map" src="https://www.google.com/maps?q=29.9835158,31.4720679&z=14&output=embed"></iframe><a href="https://maps.google.com/?q=29.9835158,31.4720679" data-t="gm"></a></div>
   <div class="big rv"><span><b>30 <small data-t="min"></small></b><i data-t="d1" style="font-style:normal"></i></span><span><b>45 <small data-t="min"></small></b><i data-t="d2" style="font-style:normal"></i></span><span><b>24/7</b><i data-t="d3" style="font-style:normal"></i></span></div>
-  <p class="mut rv" style="margin-top:22px" data-t="mall"></p>
+  <a class="mallrow rv" href="https://www.google.com/maps/search/?api=1&query=Rubik+Mall+New+Cairo"><div><b>Rubik Mall</b><span data-t="mall"></span></div><i data-t="onmap"></i></a>
 </section>
 
 <section class="terms">
@@ -217,20 +196,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 
 <script>
 const T={en:{h1:'Family apartments in New Cairo',n1:'from $45',n1s:'per night',n2:'up to 5',n2s:'guests',n3:'30 min',n3s:'to airport',ci:'Check-in',co:'Check-out',gs:'Guests',book:'Book on WhatsApp',note:'Pay on arrival · free cancellation',
-h2a:'Everything a family needs is already here',a1:'Full kitchen',a1s:'Stove, fridge, microwave, washing machine',a2:'Two bathrooms',a2s:'In every two bedroom apartment',a3:'Ready on arrival',a3s:'Tea, coffee, towels, iron, hair dryer',a4:'Prayer mat and safe',a4s:'Wi-Fi and TV in every apartment',
-h2b:'Pick your floor',f3:'Floor 3',f2:'Floor 2',f1:'Floor 1',f0:'Ground',t2br:'Two Bedroom · $85',t1br:'One Bedroom · $45',pn:'per night',chk:'Check dates',
-h2c:'30 minutes from Cairo airport',gm:'Open in Google Maps',min:'min',d1:'Cairo airport',d2:'Pyramids',d3:'Reception',mall:'A mall and a market are right nearby.',
-h2d:'Pay when you arrive',c1:'Free cancellation',c1s:'No penalty, any time',c2:'No deposit',c2s:'No prepayment online',r1:'Minimum stay',r1v:'1 night',r2:'A week or longer',r2v:'10% off',r3:'Children',r3v:'welcome',r4:'Breakfast',r4v:'$10 per person',r5:'Smoking',r5v:'not in the rooms',
+h2a:'Everything a family needs is already here',m_wifi:'Free high-speed Wi-Fi',m_kit:'Full kitchen',m_wash:'Washing machine',m_ac:'Air conditioning',m_bath:'Two bathrooms in 2BR',m_tv:'TV',m_safe:'Safe',m_mat:'Prayer mat',m_iron:'Iron and hair dryer',m_balc:'Balcony in 2BR',tab0:'One Bedroom',tab1:'Two Bedroom',tab2:'Two Bedroom, layout 2',swipe:'Swipe for more photos',onmap:'On the map',
+h2b:'Choose your apartment',pn:'per night',chk:'Check dates',
+h2c:'30 minutes from Cairo airport',gm:'Open in Google Maps',min:'min',d1:'Cairo airport',d2:'Pyramids',d3:'Reception',mall:'Right next to us, plus a market',
+h2d:'Pay when you arrive',c1:'Free cancellation',c1s:'No penalty, any time',c2:'No deposit',c2s:'No prepayment online',r1:'Minimum stay',r1v:'1 night',r2:'A week or longer',r2v:'10% off',r3:'Children',r3v:'welcome',r4:'Breakfast',r4v:'$10 per person',r5:'Smoking',r5v:'not allowed in the rooms',
 h2e:'Tell us your dates, we reply in minutes',langs:'We speak Arabic, English and Chinese',addr:'New Cairo, Cairo, Egypt',call:'Call us',lic:'Licensed for short-term rentals',
-one:'One Bedroom, 3 guests',two:'Two Bedroom, 5 guests',x1:['1 bedroom','1 bathroom','kitchen'],x2:['2 bedrooms','2 bathrooms','kitchen','balcony'],
+one:'One Bedroom',two:'Two Bedroom',two2:'Two Bedroom, layout 2',x1:['up to 3 guests','1 bedroom','1 bathroom','kitchen'],x2:['up to 5 guests','2 bedrooms','2 bathrooms','kitchen','balcony'],
 m0:'Hello, I would like to book an apartment at Best Apart Cairo.',mci:'Check-in',mco:'Check-out',mg:'Guests',ma:'Apartment'},
 ar:{h1:'شقق عائلية في القاهرة الجديدة',n1:'من 45$',n1s:'لليلة',n2:'حتى 5',n2s:'ضيوف',n3:'30 دقيقة',n3s:'إلى المطار',ci:'الوصول',co:'المغادرة',gs:'الضيوف',book:'احجز عبر واتساب',note:'الدفع عند الوصول · إلغاء مجاني',
-h2a:'كل ما تحتاجه العائلة موجود هنا',a1:'مطبخ كامل',a1s:'موقد، ثلاجة، ميكروويف، غسالة',a2:'حمّامان',a2s:'في كل شقة بغرفتي نوم',a3:'جاهزة عند وصولك',a3s:'شاي، قهوة، مناشف، مكواة، مجفف شعر',a4:'سجادة صلاة وخزنة',a4s:'واي فاي وتلفاز في كل شقة',
-h2b:'اختر الطابق',f3:'الطابق 3',f2:'الطابق 2',f1:'الطابق 1',f0:'الأرضي',t2br:'غرفتا نوم · 85$',t1br:'غرفة نوم · 45$',pn:'لليلة',chk:'تحقق من التواريخ',
-h2c:'30 دقيقة من مطار القاهرة',gm:'افتح في خرائط جوجل',min:'دقيقة',d1:'مطار القاهرة',d2:'الأهرامات',d3:'الاستقبال',mall:'مول وسوق على مقربة من المبنى.',
+h2a:'كل ما تحتاجه العائلة موجود هنا',m_wifi:'واي فاي مجاني عالي السرعة',m_kit:'مطبخ كامل',m_wash:'غسالة ملابس',m_ac:'تكييف',m_bath:'حمّامان في شقة الغرفتين',m_tv:'تلفاز',m_safe:'خزنة',m_mat:'سجادة صلاة',m_iron:'مكواة ومجفف شعر',m_balc:'شرفة في شقة الغرفتين',tab0:'غرفة نوم',tab1:'غرفتا نوم',tab2:'غرفتا نوم، تصميم 2',swipe:'اسحب لمزيد من الصور',onmap:'على الخريطة',
+h2b:'اختر شقتك',pn:'لليلة',chk:'تحقق من التواريخ',
+h2c:'30 دقيقة من مطار القاهرة',gm:'افتح في خرائط جوجل',min:'دقيقة',d1:'مطار القاهرة',d2:'الأهرامات',d3:'الاستقبال',mall:'بجوارنا مباشرة، مع سوق قريب',
 h2d:'ادفع عند الوصول',c1:'إلغاء مجاني',c1s:'بدون غرامة في أي وقت',c2:'بدون تأمين',c2s:'بدون دفع مسبق عبر الإنترنت',r1:'أقل مدة إقامة',r1v:'ليلة واحدة',r2:'أسبوع أو أكثر',r2v:'خصم 10%',r3:'الأطفال',r3v:'مرحّب بهم',r4:'الإفطار',r4v:'10$ للشخص',r5:'التدخين',r5v:'ممنوع داخل الغرف',
 h2e:'أرسل لنا تواريخك ونرد خلال دقائق',langs:'نتحدث العربية والإنجليزية والصينية',addr:'القاهرة الجديدة، القاهرة، مصر',call:'اتصل بنا',lic:'مرخّص للإيجار قصير المدة',
-one:'غرفة نوم، 3 ضيوف',two:'غرفتا نوم، 5 ضيوف',x1:['غرفة نوم','حمّام','مطبخ'],x2:['غرفتا نوم','حمّامان','مطبخ','شرفة'],
+one:'غرفة نوم',two:'غرفتا نوم',two2:'غرفتا نوم، تصميم 2',x1:['حتى 3 ضيوف','غرفة نوم','حمّام','مطبخ'],x2:['حتى 5 ضيوف','غرفتا نوم','حمّامان','مطبخ','شرفة'],
 m0:'مرحباً، أود حجز شقة في Best Apart Cairo.',mci:'الوصول',mco:'المغادرة',mg:'الضيوف',ma:'الشقة'}};
 const SRC={balkon:'img/balkon.jpg',fasad2:'img/fasad2.jpg',finiki:'img/finiki.jpg',g_1br:'img/g_1br.jpg',g_b:'img/g_b.jpg',g_c:'img/g_c.jpg',hero:'img/hero.jpg',kuh:'img/kuh.jpg',s_1br:'img/s_1br.jpg',seif:'img/seif.jpg',spal:'img/spal.jpg',spal2:'img/spal2.jpg',van:'img/van.jpg'};document.querySelectorAll('img[data-s]').forEach(i=>i.src=SRC[i.dataset.s]);
 let L='en';const $=id=>document.getElementById(id);
@@ -241,51 +220,42 @@ const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 
-const fly=$('fly'),tiles=[...fly.querySelectorAll('.tile:not(.main)')],main=fly.querySelector('.main'),am=$('am'),lerp=(a,b,t)=>a+(b-a)*t;
+const fly=$('fly'),tiles=[...fly.querySelectorAll('.tile:not(.main)')],main=fly.querySelector('.main'),lerp=(a,b,t)=>a+(b-a)*t;
 function drawFly(){
   const p=calm?1:prog(fly),q=clamp(p/.8),e=q*q*(3-2*q),rtl=L==='ar'?-1:1;
   tiles.forEach(t=>{t.style.transform=`translate(${t.dataset.x*e*rtl}%,${t.dataset.y*e}%) scale(${1-.2*e})`;t.style.opacity=1-e*1.2});
   main.style.insetInlineStart=lerp(31,0,e)+'%';main.style.top=lerp(30,0,e)+'%';main.style.width=lerp(36,100,e)+'%';main.style.height=lerp(30,100,e)+'%';
-  const k=clamp((p-.45)/.35);am.style.opacity=k;am.style.transform=`translateY(${(1-k)*18}px)`;
 }
 
-const floors=[
- {k:'f0',top:56,h:39,t:'one',x:'x1',p:'$45',g:['g_1br','s_1br','kuh','van']},
- {k:'f1',top:34,h:22,t:'two',x:'x2',p:'$85',g:['hero','spal','kuh','van','balkon']},
- {k:'f2',top:17,h:17,t:'two',x:'x2',p:'$85',g:['g_b','spal2','kuh','van','balkon']},
- {k:'f3',top:3,h:14,t:'two',x:'x2',p:'$85',g:['g_c','spal','van','balkon']}];
-const fl=$('fl'),band=$('band'),card=$('card'),chips=[...document.querySelectorAll('#chips button')],gal=$('gal'),dots=$('dots');
-
-let cur=-1;
-function fillCard(){const f=floors[cur],t=T[L];
+const apts=[
+ {t:'one',x:'x1',p:'$45',g:['g_1br','s_1br','kuh','van']},
+ {t:'two',x:'x2',p:'$85',g:['hero','spal','spal2','kuh','van','balkon']},
+ {t:'two2',x:'x2',p:'$85',g:['g_b','g_c','spal2','spal','van','balkon']}];
+const gal=$('gal'),tabs=[...document.querySelectorAll('#tabs button')];let cur=1;
+function cnt(){const w=gal.firstChild?gal.firstChild.offsetWidth+10:1,i=Math.min(apts[cur].g.length-1,Math.round(Math.abs(gal.scrollLeft)/w));$('cnt').textContent=(i+1)+' / '+apts[cur].g.length}
+function fillCard(){const f=apts[cur],t=T[L];
   gal.innerHTML=f.g.map(n=>`<img src="${SRC[n]}" alt="">`).join('');gal.scrollLeft=0;
-  dots.innerHTML=f.g.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('');
-  $('ct').textContent=t[f.t];$('cf').innerHTML=t[f.x].map(x=>`<span>${x}</span>`).join('');$('cp').textContent=f.p;links();}
-gal.addEventListener('scroll',()=>{const i=Math.round(Math.abs(gal.scrollLeft)/gal.clientWidth);[...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i))},{passive:true});
-function setFloor(i){
-  if(i===cur)return;cur=i;const f=floors[i];
-  band.style.top=f.top+'%';band.style.height=f.h+'%';
-  chips.forEach(c=>c.classList.toggle('on',+c.dataset.i===i));
-  card.style.opacity=0;setTimeout(()=>{fillCard();card.style.opacity=1},calm?0:180);
-}
-chips.forEach(c=>c.onclick=()=>{const i=+c.dataset.i,r=fl.getBoundingClientRect(),y=scrollY+r.top+(r.height-innerHeight)*((i+.5)/4);scrollTo({top:y,behavior:calm?'auto':'smooth'})});
+  $('ct').textContent=t[f.t];$('cf').innerHTML=t[f.x].map(x=>`<span>${x}</span>`).join('');$('cp').textContent=f.p;
+  tabs.forEach(c=>c.classList.toggle('on',+c.dataset.i===cur));cnt();links();}
+gal.addEventListener('scroll',cnt,{passive:true});
+tabs.forEach(c=>c.onclick=()=>{cur=+c.dataset.i;gal.style.opacity=0;setTimeout(()=>{fillCard();gal.style.opacity=1},calm?0:160)});
 
 const ci=$('ci'),co=$('co'),gs=$('gs'),iso=d=>d.toISOString().slice(0,10),day=864e5;
 ci.min=iso(new Date());co.min=iso(new Date(Date.now()+day));
 ci.onchange=()=>{if(ci.value){const n=iso(new Date(new Date(ci.value).getTime()+day));co.min=n;if(!co.value||co.value<n)co.value=n}links()};co.onchange=gs.onchange=()=>links();
 function links(){const t=T[L];let m=t.m0;
   if(ci.value)m+='\n'+t.mci+': '+ci.value;if(co.value)m+='\n'+t.mco+': '+co.value;m+='\n'+t.mg+': '+gs.value;
-  document.querySelectorAll('.wal').forEach(a=>{let x=m;if(a.id==='cb'&&cur>=0)x+='\n'+t.ma+': '+t[floors[cur].t]+', '+t[floors[cur].k];a.href='https://wa.me/201556557076?text='+encodeURIComponent(x)})}
+  document.querySelectorAll('.wal').forEach(a=>{let x=m;if(a.id==='cb')x+='\n'+t.ma+': '+t[apts[cur].t];a.href='https://wa.me/201556557076?text='+encodeURIComponent(x)})}
 
 function setLang(l){L=l;document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';
   document.querySelectorAll('[data-t]').forEach(e=>e.textContent=T[l][e.dataset.t]);
-  $('lang').textContent=l==='ar'?'English':'عربي';if(cur>=0)fillCard();links();drawFly()}
+  $('lang').textContent=l==='ar'?'English':'عربي';fillCard();links();drawFly()}
 $('lang').onclick=()=>setLang(L==='en'?'ar':'en');
 
 const fab=$('fab');let tick=false;
-function frame(){tick=false;drawFly();setFloor(Math.min(3,Math.floor(prog(fl)*4)));
-  const mid=innerHeight*.5,fr=fl.getBoundingClientRect(),yr=fly.getBoundingClientRect(),er=document.querySelector('.end').getBoundingClientRect();
-  fab.classList.toggle('show',scrollY>innerHeight*.7&&!(fr.top<mid&&fr.bottom>mid)&&!(yr.top<mid&&yr.bottom>mid)&&er.top>innerHeight*.75)}
+function frame(){tick=false;drawFly();
+  const er=document.querySelector('.end').getBoundingClientRect(),ar=$('apt').getBoundingClientRect(),mid=innerHeight*.6;
+  fab.classList.toggle('show',scrollY>innerHeight*.7&&!(ar.top<mid&&ar.bottom>mid)&&er.top>innerHeight*.75)}
 addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
 addEventListener('resize',frame);setLang(/^ar/.test(navigator.language)?'ar':'en');frame();
 </script>
