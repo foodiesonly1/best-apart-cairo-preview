@@ -66,6 +66,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 .tabs button.on{background:var(--ink);color:#fff}
 .gal2{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px;scroll-padding:0 20px;scrollbar-width:none;transition:opacity .25s ease}
 .gal2 img{flex:0 0 86%;width:86%;height:auto;aspect-ratio:4/5;border-radius:18px;scroll-snap-align:start;outline:1px solid rgba(0,0,0,.07);outline-offset:-1px}
+.bf{display:flex;align-items:center;gap:12px;margin-top:16px;padding:15px 16px;background:var(--sand);border-radius:16px;font-size:14px;font-weight:500}
+.bf input{width:22px;height:22px;accent-color:var(--acc);flex:none;margin:0}
+.bf b{margin-inline-start:auto;font-weight:600;white-space:nowrap}
 .cnt{display:flex;justify-content:space-between;font-size:13px;color:var(--mut);padding:12px 20px 0}
 .atx{padding:16px 20px 0}
 .atx h3{font-family:Fraunces,serif;font-weight:500;font-size:26px}
@@ -127,7 +130,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <div class="dates">
       <label><span data-t="ci"></span><input type="date" id="ci"></label>
       <label><span data-t="co"></span><input type="date" id="co"></label>
-      <label><span data-t="gs"></span><select id="gs"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option></select></label>
+      <label><span data-t="gs"></span><select id="gs"></select></label>
     </div>
     <a class="btn wa wal" data-t="book" href="#"></a>
     <p class="note" data-t="note"></p>
@@ -150,11 +153,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 
 <section class="apt" id="apt">
   <h2 class="rv" data-t="h2b"></h2>
-  <div class="tabs" id="tabs"><button data-i="0" data-t="tab0"></button><button data-i="1" data-t="tab1"></button><button data-i="2" data-t="tab2"></button></div>
+  <div class="tabs" id="tabs"><button data-i="0" data-t="tab0"></button><button data-i="1" data-t="tab1"></button><button data-i="2" data-t="tab2"></button><button data-i="3" data-t="tab3"></button></div>
   <div class="gal2" id="gal"></div>
   <div class="cnt"><span id="cnt"></span><span data-t="swipe"></span></div>
   <div class="atx"><h3 id="ct"></h3><div class="facts" id="cf"></div>
     <div class="pr"><div><b id="cp"></b> <span class="mut" data-t="pn"></span></div><a class="btn wal" id="cb" data-t="chk" href="#"></a></div>
+    <label class="bf"><input type="checkbox" id="bfc"><span data-t="bfl"></span><b id="bfp"></b></label>
   </div>
 </section>
 
@@ -182,7 +186,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   <p class="mut rv" data-t="langs"></p>
   <a class="btn wa wal rv" data-t="book" href="#"></a>
   <a class="tel" href="tel:+201556557076" dir="ltr">+20 155 655 7076</a>
-  <div class="pic"><img data-s="g_b" alt=""></div>
+  <div class="pic"><img data-s="m_gost" alt=""></div>
   <footer class="foot">
     <div class="logo">Best Apart<small>CAIRO</small></div>
     <div data-t="addr"></div>
@@ -196,22 +200,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 
 <script>
 const T={en:{h1:'Family apartments in New Cairo',n1:'from $45',n1s:'per night',n2:'up to 5',n2s:'guests',n3:'30 min',n3s:'to airport',ci:'Check-in',co:'Check-out',gs:'Guests',book:'Book on WhatsApp',note:'Pay on arrival · free cancellation',
-h2a:'Everything a family needs is already here',m_wifi:'Free high-speed Wi-Fi',m_kit:'Full kitchen',m_wash:'Washing machine',m_ac:'Air conditioning',m_bath:'Two bathrooms in 2BR',m_tv:'TV',m_safe:'Safe',m_mat:'Prayer mat',m_iron:'Iron and hair dryer',m_balc:'Balcony in 2BR',tab0:'One Bedroom',tab1:'Two Bedroom',tab2:'Two Bedroom, layout 2',swipe:'Swipe for more photos',onmap:'On the map',
+h2a:'Everything a family needs is already here',m_wifi:'Free high-speed Wi-Fi',m_kit:'Full kitchen',m_wash:'Washing machine',m_ac:'Air conditioning',m_bath:'Two bathrooms in 2BR',m_tv:'Smart TV',m_safe:'Safe',m_mat:'Prayer mat',m_iron:'Iron and hair dryer',m_balc:'Balcony in 2BR',tab0:'One Bedroom',tab1:'One Bedroom 2',tab2:'Two Bedroom · Mosque view',tab3:'Two Bedroom · Courtyard view',bfl:'Add breakfast, $10 per person',bfs:'breakfast for',mb:'Breakfast',yes:'yes',swipe:'Swipe for more photos',onmap:'On the map',
 h2b:'Choose your apartment',pn:'per night',chk:'Check dates',
 h2c:'30 minutes from Cairo airport',gm:'Open in Google Maps',min:'min',d1:'Cairo airport',d2:'Pyramids',d3:'Reception',mall:'Right next to us, plus a market',
 h2d:'Pay when you arrive',c1:'Free cancellation',c1s:'No penalty, any time',c2:'No deposit',c2s:'No prepayment online',r1:'Minimum stay',r1v:'1 night',r2:'A week or longer',r2v:'10% off',r3:'Children',r3v:'welcome',r4:'Breakfast',r4v:'$10 per person',r5:'Smoking',r5v:'not allowed in the rooms',
 h2e:'Tell us your dates, we reply in minutes',langs:'We speak Arabic, English and Chinese',addr:'New Cairo, Cairo, Egypt',call:'Call us',lic:'Licensed for short-term rentals',
-one:'One Bedroom',two:'Two Bedroom',two2:'Two Bedroom, layout 2',x1:['up to 3 guests','1 bedroom','1 bathroom','kitchen'],x2:['up to 5 guests','2 bedrooms','2 bathrooms','kitchen','balcony'],
+one:'One Bedroom',oneb:'One Bedroom 2',two:'Two Bedroom, mosque view',two2:'Two Bedroom, courtyard view',x1:['up to 3 guests','1 bedroom','1 bathroom','kitchen'],x2:['up to 5 guests','2 bedrooms','2 bathrooms','kitchen','balcony'],
 m0:'Hello, I would like to book an apartment at Best Apart Cairo.',mci:'Check-in',mco:'Check-out',mg:'Guests',ma:'Apartment'},
 ar:{h1:'شقق عائلية في القاهرة الجديدة',n1:'من 45$',n1s:'لليلة',n2:'حتى 5',n2s:'ضيوف',n3:'30 دقيقة',n3s:'إلى المطار',ci:'الوصول',co:'المغادرة',gs:'الضيوف',book:'احجز عبر واتساب',note:'الدفع عند الوصول · إلغاء مجاني',
-h2a:'كل ما تحتاجه العائلة موجود هنا',m_wifi:'واي فاي مجاني عالي السرعة',m_kit:'مطبخ كامل',m_wash:'غسالة ملابس',m_ac:'تكييف',m_bath:'حمّامان في شقة الغرفتين',m_tv:'تلفاز',m_safe:'خزنة',m_mat:'سجادة صلاة',m_iron:'مكواة ومجفف شعر',m_balc:'شرفة في شقة الغرفتين',tab0:'غرفة نوم',tab1:'غرفتا نوم',tab2:'غرفتا نوم، تصميم 2',swipe:'اسحب لمزيد من الصور',onmap:'على الخريطة',
+h2a:'كل ما تحتاجه العائلة موجود هنا',m_wifi:'واي فاي مجاني عالي السرعة',m_kit:'مطبخ كامل',m_wash:'غسالة ملابس',m_ac:'تكييف',m_bath:'حمّامان في شقة الغرفتين',m_tv:'تلفاز ذكي',m_safe:'خزنة',m_mat:'سجادة صلاة',m_iron:'مكواة ومجفف شعر',m_balc:'شرفة في شقة الغرفتين',tab0:'غرفة نوم',tab1:'غرفة نوم 2',tab2:'غرفتا نوم · إطلالة على المسجد',tab3:'غرفتا نوم · إطلالة على الفناء',bfl:'أضف الإفطار، 10$ للشخص',bfs:'إفطار لعدد',mb:'الإفطار',yes:'نعم',swipe:'اسحب لمزيد من الصور',onmap:'على الخريطة',
 h2b:'اختر شقتك',pn:'لليلة',chk:'تحقق من التواريخ',
 h2c:'30 دقيقة من مطار القاهرة',gm:'افتح في خرائط جوجل',min:'دقيقة',d1:'مطار القاهرة',d2:'الأهرامات',d3:'الاستقبال',mall:'بجوارنا مباشرة، مع سوق قريب',
 h2d:'ادفع عند الوصول',c1:'إلغاء مجاني',c1s:'بدون غرامة في أي وقت',c2:'بدون تأمين',c2s:'بدون دفع مسبق عبر الإنترنت',r1:'أقل مدة إقامة',r1v:'ليلة واحدة',r2:'أسبوع أو أكثر',r2v:'خصم 10%',r3:'الأطفال',r3v:'مرحّب بهم',r4:'الإفطار',r4v:'10$ للشخص',r5:'التدخين',r5v:'ممنوع داخل الغرف',
 h2e:'أرسل لنا تواريخك ونرد خلال دقائق',langs:'نتحدث العربية والإنجليزية والصينية',addr:'القاهرة الجديدة، القاهرة، مصر',call:'اتصل بنا',lic:'مرخّص للإيجار قصير المدة',
-one:'غرفة نوم',two:'غرفتا نوم',two2:'غرفتا نوم، تصميم 2',x1:['حتى 3 ضيوف','غرفة نوم','حمّام','مطبخ'],x2:['حتى 5 ضيوف','غرفتا نوم','حمّامان','مطبخ','شرفة'],
+one:'غرفة نوم',oneb:'غرفة نوم 2',two:'غرفتا نوم، إطلالة على المسجد',two2:'غرفتا نوم، إطلالة على الفناء',x1:['حتى 3 ضيوف','غرفة نوم','حمّام','مطبخ'],x2:['حتى 5 ضيوف','غرفتا نوم','حمّامان','مطبخ','شرفة'],
 m0:'مرحباً، أود حجز شقة في Best Apart Cairo.',mci:'الوصول',mco:'المغادرة',mg:'الضيوف',ma:'الشقة'}};
-const SRC={balkon:'img/balkon.jpg',fasad2:'img/fasad2.jpg',finiki:'img/finiki.jpg',g_1br:'img/g_1br.jpg',g_b:'img/g_b.jpg',g_c:'img/g_c.jpg',hero:'img/hero.jpg',kuh:'img/kuh.jpg',s_1br:'img/s_1br.jpg',seif:'img/seif.jpg',spal:'img/spal.jpg',spal2:'img/spal2.jpg',van:'img/van.jpg'};document.querySelectorAll('img[data-s]').forEach(i=>i.src=SRC[i.dataset.s]);
+const SRC={balkon:'img/balkon.jpg',fasad2:'img/fasad2.jpg',finiki:'img/finiki.jpg',g_1br:'img/g_1br.jpg',g_c:'img/g_c.jpg',hero:'img/hero.jpg',kuh:'img/kuh.jpg',s_1br:'img/s_1br.jpg',seif:'img/seif.jpg',spal:'img/spal.jpg',spal2:'img/spal2.jpg',van:'img/van.jpg',m_gost:'img/m_gost.jpg',m_vid:'img/m_vid.jpg',m_kuh:'img/m_kuh.jpg',m_twin:'img/m_twin.jpg',m_dbl:'img/m_dbl.jpg',m_van:'img/m_van.jpg',a_gost:'img/a_gost.jpg',a_kuh:'img/a_kuh.jpg',a_van:'img/a_van.jpg',a_spal:'img/a_spal.jpg',b_kuh:'img/b_kuh.jpg',b_van:'img/b_van.jpg'};document.querySelectorAll('img[data-s]').forEach(i=>i.src=SRC[i.dataset.s]);
 let L='en';const $=id=>document.getElementById(id);
 const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
 const prog=el=>{const r=el.getBoundingClientRect();return clamp(-r.top/(r.height-innerHeight))};
@@ -228,23 +232,26 @@ function drawFly(){
 }
 
 const apts=[
- {t:'one',x:'x1',p:'$45',g:['g_1br','s_1br','kuh','van']},
- {t:'two',x:'x2',p:'$85',g:['hero','spal','spal2','kuh','van','balkon']},
- {t:'two2',x:'x2',p:'$85',g:['g_b','g_c','spal2','spal','van','balkon']}];
-const gal=$('gal'),tabs=[...document.querySelectorAll('#tabs button')];let cur=1;
+ {t:'one',x:'x1',p:45,g:['a_gost','a_spal','a_kuh','a_van']},
+ {t:'oneb',x:'x1',p:45,g:['g_1br','s_1br','b_kuh','b_van']},
+ {t:'two',x:'x2',p:85,g:['m_gost','m_twin','m_dbl','m_kuh','m_van','m_vid']},
+ {t:'two2',x:'x2',p:85,g:['hero','g_c','spal','spal2','kuh','van','balkon']}];
+const gal=$('gal'),tabs=[...document.querySelectorAll('#tabs button')];let cur=2;
 function cnt(){const w=gal.firstChild?gal.firstChild.offsetWidth+10:1,i=Math.min(apts[cur].g.length-1,Math.round(Math.abs(gal.scrollLeft)/w));$('cnt').textContent=(i+1)+' / '+apts[cur].g.length}
 function fillCard(){const f=apts[cur],t=T[L];
   gal.innerHTML=f.g.map(n=>`<img src="${SRC[n]}" alt="">`).join('');gal.scrollLeft=0;
-  $('ct').textContent=t[f.t];$('cf').innerHTML=t[f.x].map(x=>`<span>${x}</span>`).join('');$('cp').textContent=f.p;
+  $('ct').textContent=t[f.t];$('cf').innerHTML=t[f.x].map(x=>`<span>${x}</span>`).join('');$('cp').textContent='$'+f.p;bf();
   tabs.forEach(c=>c.classList.toggle('on',+c.dataset.i===cur));cnt();links();}
 gal.addEventListener('scroll',cnt,{passive:true});
 tabs.forEach(c=>c.onclick=()=>{cur=+c.dataset.i;gal.style.opacity=0;setTimeout(()=>{fillCard();gal.style.opacity=1},calm?0:160)});
 
 const ci=$('ci'),co=$('co'),gs=$('gs'),iso=d=>d.toISOString().slice(0,10),day=864e5;
-ci.min=iso(new Date());co.min=iso(new Date(Date.now()+day));
-ci.onchange=()=>{if(ci.value){const n=iso(new Date(new Date(ci.value).getTime()+day));co.min=n;if(!co.value||co.value<n)co.value=n}links()};co.onchange=gs.onchange=()=>links();
+gs.innerHTML=Array.from({length:20},(_,i)=>`<option${i===1?' selected':''}>${i+1}</option>`).join('');ci.min=iso(new Date());co.min=iso(new Date(Date.now()+day));
+ci.onchange=()=>{if(ci.value){const n=iso(new Date(new Date(ci.value).getTime()+day));co.min=n;if(!co.value||co.value<n)co.value=n}links()};co.onchange=()=>links();gs.onchange=()=>{bf();links()};
+const bfc=$('bfc');function bf(){$('bfp').textContent=bfc.checked?'+ $'+(10*gs.value):''}
+bfc.onchange=()=>{bf();links()};
 function links(){const t=T[L];let m=t.m0;
-  if(ci.value)m+='\n'+t.mci+': '+ci.value;if(co.value)m+='\n'+t.mco+': '+co.value;m+='\n'+t.mg+': '+gs.value;
+  if(ci.value)m+='\n'+t.mci+': '+ci.value;if(co.value)m+='\n'+t.mco+': '+co.value;m+='\n'+t.mg+': '+gs.value;if(bfc.checked)m+='\n'+t.mb+': '+t.yes;
   document.querySelectorAll('.wal').forEach(a=>{let x=m;if(a.id==='cb')x+='\n'+t.ma+': '+t[apts[cur].t];a.href='https://wa.me/201556557076?text='+encodeURIComponent(x)})}
 
 function setLang(l){L=l;document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';
