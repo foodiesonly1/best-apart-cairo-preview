@@ -69,6 +69,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 .bf{display:flex;align-items:center;gap:12px;margin-top:16px;padding:15px 16px;background:var(--sand);border-radius:16px;font-size:14px;font-weight:500}
 .bf input{width:22px;height:22px;accent-color:var(--acc);flex:none;margin:0}
 .bf b{margin-inline-start:auto;font-weight:600;white-space:nowrap}
+.walk{display:flex;align-items:center;justify-content:center;gap:10px;margin:16px 20px 0;padding:15px 0;border-radius:999px;border:1.5px solid var(--ink);background:none;color:var(--ink);font:600 15px Inter,sans-serif;width:calc(100% - 40px)}
+.walk svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.walk[hidden]{display:none}
+.tour{position:fixed;inset:0;z-index:20;background:#14110d;color:#fff;display:none;flex-direction:column;max-width:430px;margin:0 auto;touch-action:none;user-select:none;-webkit-user-select:none}
+.tour.open{display:flex}
+.tour .th{display:flex;justify-content:space-between;align-items:center;padding:max(14px,env(safe-area-inset-top)) 16px 12px;font-family:Fraunces,serif;font-size:19px}
+.tour .x{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:22px;line-height:1}
+.tour .cv{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;position:relative}
+.tour canvas{width:100%;max-height:100%;aspect-ratio:4/5;object-fit:contain;display:block}
+.tour .tf{padding:14px 20px max(22px,env(safe-area-inset-bottom));text-align:center;font-size:14px}
+.tour .bar{height:4px;border-radius:2px;background:rgba(255,255,255,.2);margin-bottom:14px;overflow:hidden}
+.tour .bar i{display:block;height:100%;width:0;background:#fff;border-radius:2px}
+.tour .hand{position:absolute;bottom:18px;left:50%;width:54px;height:54px;margin-left:-27px;border-radius:50%;border:2px solid rgba(255,255,255,.9);background:rgba(255,255,255,.18);animation:hand 2.2s ease-in-out infinite;pointer-events:none;transition:opacity .4s}
+@keyframes hand{0%,100%{transform:translateX(-70px)}50%{transform:translateX(70px)}}
+[dir=rtl] .walk,[dir=rtl] .tour .th{font-family:'IBM Plex Sans Arabic',sans-serif}
 .cnt{display:flex;justify-content:space-between;font-size:13px;color:var(--mut);padding:12px 20px 0}
 .atx{padding:16px 20px 0}
 .atx h3{font-family:Fraunces,serif;font-weight:500;font-size:26px}
@@ -156,6 +171,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   <div class="tabs" id="tabs"><button data-i="0" data-t="tab0"></button><button data-i="1" data-t="tab1"></button><button data-i="2" data-t="tab2"></button><button data-i="3" data-t="tab3"></button></div>
   <div class="gal2" id="gal"></div>
   <div class="cnt"><span id="cnt"></span><span data-t="swipe"></span></div>
+  <button class="walk" id="walk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 4.500a1.500 1.500 0 1 0 0-.01M9 21l2-6-2-3 1-5 4 3 3 1M11 12l-4 1M13 15l3 6"/></svg><span data-t="walk"></span></button>
   <div class="atx"><h3 id="ct"></h3><div class="facts" id="cf"></div>
     <div class="pr"><div><b id="cp"></b> <span class="mut" data-t="pn"></span></div><a class="btn wal" id="cb" data-t="chk" href="#"></a></div>
     <label class="bf"><input type="checkbox" id="bfc"><span data-t="bfl"></span><b id="bfp"></b></label>
@@ -196,11 +212,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   </footer>
 </section>
 
+<div class="tour" id="tour"><div class="th"><span id="tt"></span><button class="x" id="tx" aria-label="Close">×</button></div><div class="cv"><canvas id="tc" width="540" height="675"></canvas><div class="hand" id="th"></div></div><div class="tf"><div class="bar"><i id="tb"></i></div><span id="tm"></span></div></div>
+
 <a class="fab wal" id="fab" aria-label="WhatsApp" href="#"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-1.700-.6-3.800-1.600-5.700-4.400-.9-1.300-1.400-2.500-1.400-3.600 0-1.100.6-1.700.9-2 .2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.100c.1.2.1.4 0 .6l-.7 1c-.2.2-.2.4 0 .6.5.8 1.100 1.500 1.800 2.100.7.600 1.400.9 1.900 1.100.2.1.4.1.600-.1l.9-1.100c.2-.2.4-.3.6-.2l2.100 1c.2.1.4.2.4.4 0 .2 0 .6-.2 1z"/></svg></a>
 
 <script>
 const T={en:{h1:'Family apartments in New Cairo',n1:'from $45',n1s:'per night',n2:'up to 5',n2s:'guests',n3:'30 min',n3s:'to airport',ci:'Check-in',co:'Check-out',gs:'Guests',book:'Book on WhatsApp',note:'Pay on arrival · free cancellation',
-h2a:'Everything a family needs is already here',m_wifi:'Free high-speed Wi-Fi',m_kit:'Full kitchen',m_wash:'Washing machine',m_ac:'Air conditioning',m_bath:'Two bathrooms in 2BR',m_tv:'Smart TV',m_safe:'Safe',m_mat:'Prayer mat',m_iron:'Iron and hair dryer',m_balc:'Balcony in 2BR',tab0:'One Bedroom',tab1:'One Bedroom 2',tab2:'Two Bedroom · Mosque view',tab3:'Two Bedroom · Courtyard view',bfl:'Add breakfast, $10 per person',bfs:'breakfast for',mb:'Breakfast',yes:'yes',swipe:'Swipe for more photos',onmap:'On the map',
+h2a:'Everything a family needs is already here',m_wifi:'Free high-speed Wi-Fi',m_kit:'Full kitchen',m_wash:'Washing machine',m_ac:'Air conditioning',m_bath:'Two bathrooms in 2BR',m_tv:'Smart TV',m_safe:'Safe',m_mat:'Prayer mat',m_iron:'Iron and hair dryer',m_balc:'Balcony in 2BR',tab0:'One Bedroom',tab1:'One Bedroom 2',tab2:'Two Bedroom · Mosque view',tab3:'Two Bedroom · Courtyard view',walk:'Walk through this apartment',drag:'Drag left or right to walk through',load:'Loading',bfl:'Add breakfast, $10 per person',bfs:'breakfast for',mb:'Breakfast',yes:'yes',swipe:'Swipe for more photos',onmap:'On the map',
 h2b:'Choose your apartment',pn:'per night',chk:'Check dates',
 h2c:'30 minutes from Cairo airport',gm:'Open in Google Maps',min:'min',d1:'Cairo airport',d2:'Pyramids',d3:'Reception',mall:'Right next to us, plus a market',
 h2d:'Pay when you arrive',c1:'Free cancellation',c1s:'No penalty, any time',c2:'No deposit',c2s:'No prepayment online',r1:'Minimum stay',r1v:'1 night',r2:'A week or longer',r2v:'10% off',r3:'Children',r3v:'welcome',r4:'Breakfast',r4v:'$10 per person',r5:'Smoking',r5v:'not allowed in the rooms',
@@ -208,7 +226,7 @@ h2e:'Tell us your dates, we reply in minutes',langs:'We speak Arabic, English an
 one:'One Bedroom',oneb:'One Bedroom 2',two:'Two Bedroom, mosque view',two2:'Two Bedroom, courtyard view',x1:['up to 3 guests','1 bedroom','1 bathroom','kitchen'],x2:['up to 5 guests','2 bedrooms','2 bathrooms','kitchen','balcony'],
 m0:'Hello, I would like to book an apartment at Best Apart Cairo.',mci:'Check-in',mco:'Check-out',mg:'Guests',ma:'Apartment'},
 ar:{h1:'شقق عائلية في القاهرة الجديدة',n1:'من 45$',n1s:'لليلة',n2:'حتى 5',n2s:'ضيوف',n3:'30 دقيقة',n3s:'إلى المطار',ci:'الوصول',co:'المغادرة',gs:'الضيوف',book:'احجز عبر واتساب',note:'الدفع عند الوصول · إلغاء مجاني',
-h2a:'كل ما تحتاجه العائلة موجود هنا',m_wifi:'واي فاي مجاني عالي السرعة',m_kit:'مطبخ كامل',m_wash:'غسالة ملابس',m_ac:'تكييف',m_bath:'حمّامان في شقة الغرفتين',m_tv:'تلفاز ذكي',m_safe:'خزنة',m_mat:'سجادة صلاة',m_iron:'مكواة ومجفف شعر',m_balc:'شرفة في شقة الغرفتين',tab0:'غرفة نوم',tab1:'غرفة نوم 2',tab2:'غرفتا نوم · إطلالة على المسجد',tab3:'غرفتا نوم · إطلالة على الفناء',bfl:'أضف الإفطار، 10$ للشخص',bfs:'إفطار لعدد',mb:'الإفطار',yes:'نعم',swipe:'اسحب لمزيد من الصور',onmap:'على الخريطة',
+h2a:'كل ما تحتاجه العائلة موجود هنا',m_wifi:'واي فاي مجاني عالي السرعة',m_kit:'مطبخ كامل',m_wash:'غسالة ملابس',m_ac:'تكييف',m_bath:'حمّامان في شقة الغرفتين',m_tv:'تلفاز ذكي',m_safe:'خزنة',m_mat:'سجادة صلاة',m_iron:'مكواة ومجفف شعر',m_balc:'شرفة في شقة الغرفتين',tab0:'غرفة نوم',tab1:'غرفة نوم 2',tab2:'غرفتا نوم · إطلالة على المسجد',tab3:'غرفتا نوم · إطلالة على الفناء',walk:'تجوّل داخل الشقة',drag:'اسحب يميناً أو يساراً للتجول',load:'جارٍ التحميل',bfl:'أضف الإفطار، 10$ للشخص',bfs:'إفطار لعدد',mb:'الإفطار',yes:'نعم',swipe:'اسحب لمزيد من الصور',onmap:'على الخريطة',
 h2b:'اختر شقتك',pn:'لليلة',chk:'تحقق من التواريخ',
 h2c:'30 دقيقة من مطار القاهرة',gm:'افتح في خرائط جوجل',min:'دقيقة',d1:'مطار القاهرة',d2:'الأهرامات',d3:'الاستقبال',mall:'بجوارنا مباشرة، مع سوق قريب',
 h2d:'ادفع عند الوصول',c1:'إلغاء مجاني',c1s:'بدون غرامة في أي وقت',c2:'بدون تأمين',c2s:'بدون دفع مسبق عبر الإنترنت',r1:'أقل مدة إقامة',r1v:'ليلة واحدة',r2:'أسبوع أو أكثر',r2v:'خصم 10%',r3:'الأطفال',r3v:'مرحّب بهم',r4:'الإفطار',r4v:'10$ للشخص',r5:'التدخين',r5v:'ممنوع داخل الغرف',
@@ -232,15 +250,15 @@ function drawFly(){
 }
 
 const apts=[
- {t:'one',x:'x1',p:45,g:['a_gost','a_spal','a_kuh','a_van']},
- {t:'oneb',x:'x1',p:45,g:['g_1br','s_1br','b_kuh','b_van']},
- {t:'two',x:'x2',p:85,g:['m_gost','m_twin','m_dbl','m_kuh','m_van','m_vid']},
+ {t:'one',v:'a',x:'x1',p:45,g:['a_gost','a_spal','a_kuh','a_van']},
+ {t:'oneb',v:'b',x:'x1',p:45,g:['g_1br','s_1br','b_kuh','b_van']},
+ {t:'two',v:'m',x:'x2',p:85,g:['m_gost','m_twin','m_dbl','m_kuh','m_van','m_vid']},
  {t:'two2',x:'x2',p:85,g:['hero','g_c','spal','spal2','kuh','van','balkon']}];
 const gal=$('gal'),tabs=[...document.querySelectorAll('#tabs button')];let cur=2;
 function cnt(){const w=gal.firstChild?gal.firstChild.offsetWidth+10:1,i=Math.min(apts[cur].g.length-1,Math.round(Math.abs(gal.scrollLeft)/w));$('cnt').textContent=(i+1)+' / '+apts[cur].g.length}
 function fillCard(){const f=apts[cur],t=T[L];
   gal.innerHTML=f.g.map(n=>`<img src="${SRC[n]}" alt="">`).join('');gal.scrollLeft=0;
-  $('ct').textContent=t[f.t];$('cf').innerHTML=t[f.x].map(x=>`<span>${x}</span>`).join('');$('cp').textContent='$'+f.p;bf();
+  $('ct').textContent=t[f.t];$('cf').innerHTML=t[f.x].map(x=>`<span>${x}</span>`).join('');$('cp').textContent='$'+f.p;bf();$('walk').hidden=!f.v;
   tabs.forEach(c=>c.classList.toggle('on',+c.dataset.i===cur));cnt();links();}
 gal.addEventListener('scroll',cnt,{passive:true});
 tabs.forEach(c=>c.onclick=()=>{cur=+c.dataset.i;gal.style.opacity=0;setTimeout(()=>{fillCard();gal.style.opacity=1},calm?0:160)});
@@ -259,6 +277,17 @@ function setLang(l){L=l;document.documentElement.lang=l;document.documentElement
   $('lang').textContent=l==='ar'?'English':'عربي';fillCard();links();drawFly()}
 $('lang').onclick=()=>setLang(L==='en'?'ar':'en');
 
+const tour=$('tour'),tc=$('tc'),tg=tc.getContext('2d'),NF=110;let tfr=[],ti=0,tl=0,tk='',auto=0,tdrag=null;
+function tdraw(){const im=tfr[Math.round(ti)];if(im&&im.complete&&im.naturalWidth)tg.drawImage(im,0,0,540,675);$('tb').style.width=(ti/(NF-1)*100)+'%'}
+function topen(){const f=apts[cur];if(!f.v)return;tk=f.v;tfr=[];ti=0;tl=0;$('tt').textContent=T[L][f.t];$('tm').textContent=T[L].load+' 0%';$('th').style.opacity=1;
+  tour.classList.add('open');document.body.style.overflow='hidden';
+  for(let i=0;i<NF;i++){const im=new Image();im.onload=()=>{tl++;if(tk!==f.v)return;$('tm').textContent=tl<NF?T[L].load+' '+Math.round(tl/NF*100)+'%':T[L].drag;if(i===0||i===Math.round(ti))tdraw()};im.src='tour/'+f.v+'/'+String(i+1).padStart(3,'0')+'.jpg';tfr.push(im)}
+  clearInterval(auto);auto=setInterval(()=>{if(tdrag===null&&tl>ti+8&&ti<NF-1){ti=Math.min(NF-1,ti+.25);tdraw()}},40)}
+function tclose(){tour.classList.remove('open');document.body.style.overflow='';clearInterval(auto);tk=''}
+$('walk').onclick=topen;$('tx').onclick=tclose;
+tc.parentElement.addEventListener('pointerdown',e=>{tdrag={x:e.clientX,i:ti};$('th').style.opacity=0;clearInterval(auto)});
+addEventListener('pointermove',e=>{if(tdrag===null||!tour.classList.contains('open'))return;const d=(tdrag.x-e.clientX)*(L==='ar'?-1:1);ti=clamp(tdrag.i+d/3.2,0,Math.min(NF-1,Math.max(0,tl-1)));tdraw()});
+addEventListener('pointerup',()=>{tdrag=null});addEventListener('pointercancel',()=>{tdrag=null});
 const fab=$('fab');let tick=false;
 function frame(){tick=false;drawFly();
   const er=document.querySelector('.end').getBoundingClientRect(),ar=$('apt').getBoundingClientRect(),mid=innerHeight*.6;
